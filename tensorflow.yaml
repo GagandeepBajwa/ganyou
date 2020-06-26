@@ -1,0 +1,16 @@
+name: tensorflow2
+dependencies:
+        - python=3.6
+        - pip
+        - glob2
+        - pip:
+                - numpy
+                - tensorflow==2.2.0
+                - matplotlib
+                - imageio
+                - matplotlib
+                - Pillow
+                - IPython
+                - pandas
+                
+                
