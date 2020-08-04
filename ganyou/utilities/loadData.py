@@ -22,6 +22,7 @@ def load_data(dir):
         #read the file and push to the files 
         image_array = read_image(file)
         data.append(image_array)
+    
 
 if __name__ ==  "__main__":
     print("Starting Loading the data")
