@@ -6,8 +6,12 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt 
 from tensorflow.keras import layers
+import os, sys
 
-#defingin global variables
+#Importing Local Modules
+import utilities.loadData as database
+
+#Defingin global variables
 BUFFER_SIZE = 60000
 BATCH_SIZE = 256
 
@@ -64,19 +68,21 @@ def generate_images(model_path=None):
         #create a new discrimator model
         #discriminative_model = build_discriminative_model()
 
-        #code from here is just for testign purposes
-        noise = tf.random.normal([1,100])
-        generated_image = generative_model(noise, training=False)
-        print(generated_image.shape)
-        plt.imshow(generated_image[0,:,:,0], cmap="cubehelix")
-        plt.show()
+        # #code from here is just for testign purposes
+        # noise = tf.random.normal([1,100])
+        # generated_image = generative_model(noise, training=False)
+        # print(generated_image.shape)
+        # plt.imshow(generated_image[0,:,:,0], cmap="cubehelix")
+        # plt.show()
 
-        #discrimative testing code goes here
-        discriminative_model=build_discriminative_model()
-        decision=discriminative_model(generated_image)
-        print(decision)
+        # #discrimative testing code goes here
+        # discriminative_model=build_discriminative_model()
+        # decision=discriminative_model(generated_image)
+        # print(decision)
 
-        
+        #reading the database and test run goes here
+        database.load_data(os.path.join(os.getcwd(),"data"))
+
 
 def discriminator_loss(real_output, fake_output):
     #calculating the total loss of the fake output by the generative model

@@ -16,13 +16,14 @@ def read_image(image):
     return image_array
 
 def load_data(dir):
-    print("Starting loading data")
+    print("Starting loading data: ", dir)
     data=[]
     for file in os.listdir(dir):
         #read the file and push to the files 
-        image_array = read_image(file)
+        image_array = read_image(os.path.join(dir,file))
         data.append(image_array)
     
+    return data
 
 if __name__ ==  "__main__":
     print("Starting Loading the data")
